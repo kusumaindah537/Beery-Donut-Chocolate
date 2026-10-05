@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berry Donut Chocolate - Manisnya Cokelat, Segarnya Buah!</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-berry: #D81B60;
+            --primary-dark-berry: #880E4F;
+            --primary-choco: #3E2723;
+            --accent-choco: #4E342E;
+            --accent-gold: #FFB300;
+            --bg-cream: #FFF8F0;
+            --text-dark: #2B2B2B;
+            --card-shadow: 0 10px 30px rgba(62, 39, 35, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* --- NAVBAR --- */
+        nav {
+            background: rgba(255, 248, 240, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: var(--primary-choco);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--primary-berry);
+        }
+
+        .cart-icon-btn {
+            position: relative;
+            background: var(--primary-berry);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .cart-icon-btn:hover {
+            background: var(--primary-dark-berry);
+            transform: translateY(-2px);
+        }
+
+        .cart-badge {
+            background: var(--accent-gold);
+            color: var(--primary-choco);
+            border-radius: 50%;
+            padding: 2px 7px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        /* --- HERO HEADER --- */
+        header {
+            margin-top: 70px;
+            padding: 4rem 5% 3rem;
+            text-align: center;
+            background: linear-gradient(135deg, #FFF0F5 0%, #FFF8F0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(216, 27, 96, 0.05);
+        }
+
+        .header-tag {
+            display: inline-block;
+            background: #FCE4EC;
+            color: var(--primary-berry);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            color: var(--primary-choco);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        header h2.tagline {
+            font-size: 1.5rem;
+            color: var(--primary-berry);
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+        }
+
+        header p.subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        /* --- CONTAINER --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 5%;
+        }
+
+        /* --- PRODUCT SHOWCASE --- */
+        .product-card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: var(--card-shadow);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            padding: 2.5rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .product-image-container {
+            position: relative;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .product-image-container:hover .product-image {
+            transform: scale(1.05);
+        }
+
+        .badge-price {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary-choco);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .product-info h3 {
+            font-size: 2rem;
+            color: var(--primary-choco);
+            margin-bottom: 0.5rem;
+        }
+
+        .price-tag {
+            font-size: 1.8rem;
+            color: var(--primary-berry);
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .price-tag span {
+            font-size: 0.9rem;
+            color: #777;
+            font-weight: 400;
+        }
+
+        .about-text {
+            color: #555;
+            margin-bottom: 1.5rem;
+            font-size: 0.98rem;
+        }
+
+        .qty-picker {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+        }
+
+        .qty-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid #ddd;
+            background: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .qty-btn:hover {
+            background: var(--primary-berry);
+            color: white;
+            border-color: var(--primary-berry);
+        }
+
+        .qty-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            min-width: 30px;
+            text-align: center;
+        }
+
+        .btn-add-cart {
+            width: 100%;
+            background: var(--primary-berry);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 12px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 20px rgba(216, 27, 96, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-add-cart:hover {
+            background: var(--primary-dark-berry);
+            transform: translateY(-2px);
+        }
+
+        /* --- FEATURES SECTION --- */
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-choco);
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-berry);
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 18px;
+            box-shadow: var(--card-shadow);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: #FCE4EC;
+            color: var(--primary-berry);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 1.2rem;
+        }
+
+        .feature-card h4 {
+            color: var(--primary-choco);
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* --- HOW TO ORDER --- */
+        .steps-container {
+            background: white;
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 4rem;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .step-item {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 45px;
+            height: 45px;
+            background: var(--primary-choco);
+            color: white;
+            font-weight: 800;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.2rem;
+        }
+
+        .step-item h5 {
+            font-size: 1rem;
+            color: var(--text-dark);
+            margin-bottom: 0.4rem;
+        }
+
+        /* --- CONTACT ORDER OPTIONS --- */
+        .contact-section {
+            background: linear-gradient(135deg, var(--primary-choco) 0%, var(--accent-choco) 100%);
+            color: white;
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .contact-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-section p {
+            color: #DDD;
+            margin-bottom: 2rem;
+        }
+
+        .wa-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-wa {
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            padding: 1rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-wa:hover {
+            background: #1EBE5D;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        /* --- MODAL KERANJANG --- */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 450px;
+            position: relative;
+            animation: popIn 0.3s ease;
+        }
+
+        @keyframes popIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #888;
+        }
+
+        .cart-summary {
+            margin: 1.5rem 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            padding: 1rem 0;
+        }
+
+        .cart-item-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .cart-total-row {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--primary-berry);
+            margin-top: 0.8rem;
+        }
+
+        .select-wa-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: #555;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--primary-choco);
+            color: white;
+            text-align: center;
+            padding: 2.5rem 5%;
+            margin-top: 2rem;
+        }
+
+        footer h3 {
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            color: #FFF;
+        }
+
+        footer p.footer-tagline {
+            color: var(--accent-gold);
+            font-style: italic;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        footer p.copyright {
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: #AAA;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.1rem; }
+            header h2.tagline { font-size: 1.2rem; }
+            .product-card { grid-template-columns: 1fr; padding: 1.5rem; }
+            .product-image { height: 260px; }
+            .wa-buttons { flex-direction: column; }
+            .btn-wa { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">
+            <i class="fa-solid fa-cookie-bite" style="color: var(--primary-berry);"></i>
+            BERRY <span>DONUT</span>
+        </div>
+        <button class="cart-icon-btn" onclick="openCartModal()">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span>Keranjang</span>
+            <span class="cart-badge" id="cartBadgeCount">1</span>
+        </button>
+    </nav>
+
+    <!-- HEADER / HERO -->
+    <header>
+        <span class="header-tag"><i class="fa-solid fa-heart"></i> Inovasi Dessert Kekinian</span>
+        <h1>BERRY DONUT CHOCOLATE</h1>
+        <h2 class="tagline">“Manisnya Cokelat, Segarnya Buah!”</h2>
+        <p class="subtitle">Perpaduan cokelat dan buah yang lezat dalam bentuk donat unik yang menggugah selera.</p>
+    </header>
+
+    <div class="container">
+        <!-- PRODUCT SHOWCASE -->
+        <section class="product-card">
+            <div class="product-image-container">
+                <span class="badge-price">Isi 2 Buah</span>
+                <!-- Ilustrasi / Foto Produk -->
+                <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=80" alt="Berry Donut Chocolate" class="product-image">
+            </div>
+            
+            <div class="product-info">
+                <h3>Berry Donut Chocolate</h3>
+                <div class="price-tag">
+                    Rp 20.000 <span>/ porsi (isi 2 pcs)</span>
+                </div>
+                
+                <p class="about-text">
+                    <strong>Tentang Produk:</strong> Berry Donut Chocolate adalah inovasi dessert yang dipadukan dengan cokelat dan buah-buahan berbentuk donat. Dessert ini terbuat dari susunan buah segar yang dibentuk melingkar menyerupai donat, lalu disiram lelehan cokelat premium dan didinginkan di kulkas hingga mengeras.
+                </p>
+
+                <div class="qty-picker">
+                    <span style="font-weight: 600;">Jumlah Porsi:</span>
+                    <button class="qty-btn" onclick="updateQty(-1)">-</button>
+                    <span class="qty-value" id="qtyDisplay">1</span>
+                    <button class="qty-btn" onclick="updateQty(1)">+</button>
+                </div>
+
+                <button class="btn-add-cart" onclick="openCartModal()">
+                    <i class="fa-solid fa-cart-plus"></i> Pesan Sekarang Via Keranjang
+                </button>
+            </div>
+        </section>
+
+        <!-- KEUNGGULAN PRODUK -->
+        <section>
+            <h3 class="section-title">Keunggulan Produk</h3>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-shapes"></i>
+                    </div>
+                    <h4>Unik & Menarik</h4>
+                    <p>Menggabungkan donat, cokelat, dan buah segar dalam satu produk yang kreatif dan aesthetic.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-face-smile-beam"></i>
+                    </div>
+                    <h4>Variasi Rasa Lezat</h4>
+                    <p>Mengurangi rasa bosan dengan camilan biasa melalui perpaduan rasa manis cokelat dan kesegaran buah.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-handshake-angle"></i>
+                    </div>
+                    <h4>Mendukung Ekonomi Lokal</h4>
+                    <p>Bahan baku dibeli langsung dari pedagang sekitar sehingga membantu perputaran ekonomi masyarakat.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CARA PESAN -->
+        <section class="steps-container">
+            <h3 class="section-title" style="margin-bottom: 1rem;">CARA PESAN</h3>
+            <div class="steps-grid">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <h5>Pilih Varian</h5>
+                    <p style="font-size:0.85rem; color:#777;">Tentukan pilihan dessert favoritmu</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <h5>Tentukan Jumlah</h5>
+                    <p style="font-size:0.85rem; color:#777;">Atur berapa banyak porsi pesananmu</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <h5>Hubungi Kontak</h5>
+                    <p style="font-size:0.85rem; color:#777;">Klik tombol WhatsApp admin kami</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <h5>Siap Diambil/Diantar</h5>
+                    <p style="font-size:0.85rem; color:#777;">Pesanan langsung siap kamu nikmati!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- KONTAK PEMESANAN DIRECT -->
+        <section class="contact-section">
+            <h3>Pesan Langsung Via WhatsApp</h3>
+            <p>Pilih salah satu kontak di bawah ini untuk pemesanan cepat dan mudah:</p>
+            <div class="wa-buttons">
+                <a href="#" onclick="orderViaWA('082337775870')" class="btn-wa">
+                    <i class="fa-brands fa-whatsapp fa-xl"></i> Kontak 1: 0823-3777-5870
+                </a>
+                <a href="#" onclick="orderViaWA('083195167377')" class="btn-wa">
+                    <i class="fa-brands fa-whatsapp fa-xl"></i> Kontak 2: 0831-9516-7377
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- MODAL KERANJANG -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeCartModal()">&times;</span>
+            <h3 style="color: var(--primary-choco); margin-bottom: 1rem;"><i class="fa-solid fa-basket-shopping" style="color: var(--primary-berry);"></i> Keranjang Pesanan</h3>
+            
+            <div class="cart-summary">
+                <div class="cart-item-row">
+                    <span>Berry Donut Chocolate</span>
+                    <span id="modalCartQty">1 x Rp 20.000</span>
+                </div>
+                <div class="cart-item-row" style="font-size: 0.85rem; color: #777;">
+                    <span>(Isi 2 pcs per porsi)</span>
+                </div>
+                <div class="cart-total-row">
+                    <span>Total Harga:</span>
+                    <span id="modalCartTotal">Rp 20.000</span>
+                </div>
+            </div>
+
+            <p class="select-wa-title">Lanjutkan pemesanan ke WhatsApp Admin:</p>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+                <button onclick="checkoutWA('082337775870')" class="btn-wa" style="border:none; cursor:pointer; justify-content:center;">
+                    <i class="fa-brands fa-whatsapp fa-lg"></i> Kirim ke Kontak 1 (0823-3777-5870)
+                </button>
+                <button onclick="checkoutWA('083195167377')" class="btn-wa" style="border:none; cursor:pointer; justify-content:center; background-color: #128C7E;">
+                    <i class="fa-brands fa-whatsapp fa-lg"></i> Kirim ke Kontak 2 (0831-9516-7377)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <h3>BERRY DONUT CHOCOLATE</h3>
+        <p class="footer-tagline">“Satu Gigitan, Bikin Mood Meningkat!”</p>
+        <p class="copyright">&copy; 2026 Berry Donut Chocolate. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        let itemQuantity = 1;
+        const unitPrice = 20000;
+
+        function updateQty(change) {
+            itemQuantity += change;
+            if (itemQuantity < 1) itemQuantity = 1;
+            
+            document.getElementById('qtyDisplay').innerText = itemQuantity;
+            document.getElementById('cartBadgeCount').innerText = itemQuantity;
+            updateModalDetails();
+        }
+
+        function updateModalDetails() {
+            const totalPrice = itemQuantity * unitPrice;
+            document.getElementById('modalCartQty').innerText = `${itemQuantity} x Rp ${unitPrice.toLocaleString('id-ID')}`;
+            document.getElementById('modalCartTotal').innerText = `Rp ${totalPrice.toLocaleString('id-ID')}`;
+        }
+
+        function openCartModal() {
+            updateModalDetails();
+            document.getElementById('cartModal').style.display = 'flex';
+        }
+
+        function closeCartModal() {
+            document.getElementById('cartModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('cartModal');
+            if (event.target === modal) {
+                closeCartModal();
+            }
+        }
+
+        function checkoutWA(phone) {
+            const totalPrice = itemQuantity * unitPrice;
+            const message = `Halo Kak, saya mau pesan *Berry Donut Chocolate*:%0A%0A` +
+                            `- Jumlah: ${itemQuantity} Porsi (${itemQuantity * 2} pcs)%0A` +
+                            `- Total Harga: Rp ${totalPrice.toLocaleString('id-ID')}%0A%0A` +
+                            `Mohon diproses ya kak, terima kasih!`;
+            
+            window.open(`https://wa.me/62${phone.substring(1)}?text=${message}`, '_blank');
+        }
+
+        function orderViaWA(phone) {
+            checkoutWA(phone);
+        }
+    </script>
+</body>
+</html>
