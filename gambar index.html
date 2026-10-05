@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ilustrasi Kode Berry Donut Chocolate</title>
+    <style>
+        body {
+            background-color: #FFF8F0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(62, 39, 35, 0.1);
+        }
+
+        h2 {
+            color: #3E2723;
+            margin-bottom: 5px;
+        }
+
+        p {
+            color: #E53935;
+            font-weight: 600;
+            margin-top: 0;
+        }
+
+        /* Effect Hover Gambar */
+        svg {
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+
+        svg:hover {
+            transform: scale(1.05) rotate(3deg);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Berry Donut Chocolate</h2>
+        <p>“Manisnya Cokelat, Segarnya Buah!”</p>
+
+        <!-- KODE GAMBAR SVG DONUT BERRY CHOCOLATE -->
+        <svg width="380" height="380" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <!-- Shadow efek 3D -->
+                <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+                    <feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#3E2723" flood-opacity="0.25"/>
+                </filter>
+                <filter id="soft-shadow" x="-10%" y="-10%" width="130%" height="130%">
+                    <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#000" flood-opacity="0.2"/>
+                </filter>
+
+                <!-- Gradient Cokelat Lelehan -->
+                <linearGradient id="chocoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#4E342E" />
+                    <stop offset="50%" stop-color="#3E2723" />
+                    <stop offset="100%" stop-color="#211513" />
+                </linearGradient>
+
+                <!-- Gradient Stroberi -->
+                <radialGradient id="strawberryGrad" cx="40%" cy="40%" r="60%">
+                    <stop offset="0%" stop-color="#FF5252" />
+                    <stop offset="70%" stop-color="#D32F2F" />
+                    <stop offset="100%" stop-color="#8E0000" />
+                </radialGradient>
+
+                <!-- Gradient Anggur Hijau/Kiwi -->
+                <radialGradient id="grapeGrad" cx="35%" cy="35%" r="65%">
+                    <stop offset="0%" stop-color="#AED581" />
+                    <stop offset="60%" stop-color="#7CB342" />
+                    <stop offset="100%" stop-color="#33691E" />
+                </radialGradient>
+
+                <!-- Gradient Cokelat Putih / Matcha Drizzle -->
+                <linearGradient id="whiteChoco" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#FFFFFF"/>
+                    <stop offset="100%" stop-color="#FFF8E1"/>
+                </linearGradient>
+
+                <!-- Pattern Lubang Donat (Masking) -->
+                <mask id="donutHole">
+                    <rect x="0" y="0" width="400" height="400" fill="white" />
+                    <circle cx="200" cy="200" r="55" fill="black" />
+                </mask>
+            </defs>
+
+            <!-- Bayangan Piring/Alas -->
+            <ellipse cx="200" cy="330" rx="140" ry="25" fill="#E0D7D3" opacity="0.6"/>
+
+            <!-- GROUP UTAMA DONAT (DENGAN MASKING LUBANG TENGAH) -->
+            <g mask="url(#donutHole)" filter="url(#shadow)">
+                
+                <!-- 1. BASE DONAT BUAH (Lingkaran Dasar) -->
+                <circle cx="200" cy="200" r="135" fill="#5D4037" />
+
+                <!-- 2. BUAH-BUAHAN SEGAR DI SEKELILING DONAT -->
+                <!-- Anggur Hijau / Matcha Chunks (Kiri Atas & Kanan Bawah) -->
+                <circle cx="130" cy="140" r="38" fill="url(#grapeGrad)" />
+                <circle cx="270" cy="260" r="36" fill="url(#grapeGrad)" />
+                <circle cx="140" cy="250" r="32" fill="url(#grapeGrad)" />
+
+                <!-- Stroberi Segar (Kanan Atas & Kiri Bawah) -->
+                <!-- Stroberi 1 -->
+                <path d="M 230,110 C 210,80 270,70 280,110 C 290,140 240,160 230,110 Z" fill="url(#strawberryGrad)" filter="url(#soft-shadow)"/>
+                <!-- Stroberi 2 -->
+                <path d="M 150,260 C 130,230 190,220 200,260 C 210,290 160,300 150,260 Z" fill="url(#strawberryGrad)" filter="url(#soft-shadow)"/>
+                <!-- Stroberi 3 -->
+                <path d="M 250,180 C 230,150 290,140 295,185 C 300,210 260,215 250,180 Z" fill="url(#strawberryGrad)" filter="url(#soft-shadow)"/>
+
+                <!-- Bintik Biji Stroberi -->
+                <circle cx="250" cy="110" r="1.5" fill="#FFEB3B"/>
+                <circle cx="260" cy="125" r="1.5" fill="#FFEB3B"/>
+                <circle cx="240" cy="130" r="1.5" fill="#FFEB3B"/>
+                <circle cx="170" cy="255" r="1.5" fill="#FFEB3B"/>
+                <circle cx="180" cy="270" r="1.5" fill="#FFEB3B"/>
+
+                <!-- 3. SIRAMAN LELEHAN COKELAT BEKU (Glaze/Topping Dripping) -->
+                <path d="M 200,65 
+                         C 250,65 315,90 330,150 
+                         C 345,210 320,290 270,325 
+                         C 220,350 150,330 100,290 
+                         C 60,250 60,170 100,110 
+                         C 140,70 170,65 200,65 Z" 
+                      fill="url(#chocoGrad)" opacity="0.88" />
+
+                <!-- Detail Alur Lelehan Cokelat Tebal -->
+                <path d="M 170,70 C 220,60 290,100 310,145 C 330,190 325,240 300,280 C 275,320 230,335 185,330 C 150,325 120,300 95,260 C 120,275 160,270 180,240 C 190,220 180,200 170,180 C 150,150 140,100 170,70 Z" fill="#211513" opacity="0.4"/>
+
+                <!-- 4. TABURAN KACANG ALMOND & CHIPS -->
+                <!-- Almond Slices -->
+                <polygon points="120,110 135,115 125,125" fill="#D7CCC8" filter="url(#soft-shadow)"/>
+                <polygon points="260,100 275,108 268,118" fill="#FFE0B2" filter="url(#soft-shadow)"/>
+                <polygon points="290,230 305,232 298,245" fill="#D7CCC8" filter="url(#soft-shadow)"/>
+                <polygon points="140,280 152,290 138,295" fill="#FFE0B2" filter="url(#soft-shadow)"/>
+
+                <!-- 5. COKELAT PUTIH DRIZZLE (Coretan Lelehan Cokelat Putih di Atas) -->
+                <path d="M 120,130 Q 160,90 210,120 T 290,160" fill="none" stroke="url(#whiteChoco)" stroke-width="6" stroke-linecap="round" filter="url(#soft-shadow)"/>
+                <path d="M 100,180 Q 150,130 220,180 T 320,200" fill="none" stroke="url(#whiteChoco)" stroke-width="5" stroke-linecap="round" filter="url(#soft-shadow)"/>
+                <path d="M 110,220 Q 170,270 230,230 T 290,280" fill="none" stroke="url(#whiteChoco)" stroke-width="5.5" stroke-linecap="round" filter="url(#soft-shadow)"/>
+
+                <!-- HIGHLIGHT KILAUAN ES / BEKU (Frosty Shine Effect) -->
+                <ellipse cx="140" cy="110" rx="12" ry="5" fill="#FFFFFF" opacity="0.4" transform="rotate(-30 140 110)"/>
+                <ellipse cx="280" cy="140" rx="20" ry="7" fill="#FFFFFF" opacity="0.5" transform="rotate(40 280 140)"/>
+                <ellipse cx="290" cy="230" rx="15" ry="6" fill="#FFFFFF" opacity="0.4" transform="rotate(70 290 230)"/>
+                <ellipse cx="130" cy="260" rx="18" ry="6" fill="#FFFFFF" opacity="0.4" transform="rotate(-40 130 260)"/>
+
+            </g>
+
+            <!-- LUBANG TENGAH DONAT (Agar Tampak Tiga Dimensi) -->
+            <circle cx="200" cy="200" r="55" fill="none" stroke="#211513" stroke-width="4" opacity="0.3"/>
+            <path d="M 150,180 A 55 55 0 0 0 245,225" fill="none" stroke="#FFFFFF" stroke-width="5" opacity="0.4"/>
+        </svg>
+
+    </div>
+
+</body>
+</html>
