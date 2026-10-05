@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berry Donut Chocolate - Manisnya Cokelat, Segarnya Buah!</title>
+    <!-- Import Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* CSS Reset dan Gaya Dasar */
+        :root {
+            --primary-berry: #880e4f; /* Warna berry tua */
+            --secondary-choco: #3e2723; /* Warna cokelat tua */
+            --accent-green: #388e3c; /* Warna hijau daun dari buah */
+            --text-dark: #212121;
+            --text-light: #ffffff;
+            --bg-krem: #fff8f0;
+            --wa-green: #25D366;
+            --cart-color: #f57c00;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-krem);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* --- Bagian Header --- */
+        header {
+            position: relative;
+            background-image: url('image_0.png'); /* Menggunakan gambar user */
+            background-size: cover;
+            background-position: center;
+            height: 80vh; /* Tinggi header yang signifikan */
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* Hamparan transparan untuk keterbacaan teks */
+            z-index: 1;
+        }
+
+        header .content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        header h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 5px;
+            font-style: italic;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        /* --- Gaya Main Content --- */
+        main {
+            padding: 40px 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        h3.section-title {
+            text-align: center;
+            color: var(--secondary-choco);
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        h3.section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-berry);
+            margin: 8px auto 0;
+        }
+
+        /* Seksi Tentang */
+        #tentang {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        #tentang p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        /* Seksi Produk Utama */
+        #produk {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        .product-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-image-large {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+
+        .product-details h4 {
+            font-size: 1.8rem;
+            color: var(--secondary-choco);
+            margin-bottom: 5px;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            color: var(--primary-berry);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .product-desc {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .order-actions {
+            margin-top: auto;
+        }
+
+        .order-form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .order-form input {
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            width: 100px;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-bottom: 10px;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-cart {
+            background-color: var(--cart-color);
+            color: white;
+        }
+        .btn-cart:hover {
+            background-color: #e66c00;
+        }
+
+        .btn-wa {
+            background-color: var(--wa-green);
+            color: white;
+        }
+        .btn-wa:hover {
+            background-color: #1ebe5d;
+        }
+
+        /* Seksi Keunggulan */
+        #keunggulan {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-berry);
+            margin-bottom: 15px;
+        }
+
+        .feature-card h5 {
+            font-size: 1.2rem;
+            color: var(--secondary-choco);
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: #777;
+            font-size: 0.95rem;
+        }
+
+        /* Seksi Cara Pesan */
+        #cara-pesan {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        #cara-pesan ol {
+            list-style-position: inside;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        #cara-pesan li {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .payment-info {
+            background-color: #e1f5fe;
+            color: #01579b;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 25px;
+            text-align: center;
+            font-weight: 600;
+            max-width: 600px;
+            margin: 25px auto 0 auto;
+        }
+
+        /* --- Bagian Footer --- */
+        footer {
+            background-color: var(--secondary-choco);
+            color: var(--text-light);
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 50px;
+        }
+
+        footer h4 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        footer p {
+            font-size: 1.1rem;
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        /* --- Responsivitas --- */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            header h2 {
+                font-size: 1.4rem;
+            }
+            #produk {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Bagian Header -->
+    <header>
+        <div class="content">
+            <h1>BERRY DONUT CHOCOLATE</h1>
+            <h2>“Manisnya Cokelat, Segarnya Buah!”</h2>
+            <p>perpaduan cokelat dan buah yang lezat.</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+
+            <!-- Seksi Tentang Produk -->
+            <section id="tentang">
+                <h3 class="section-title">Inovasi Dessert Unik</h3>
+                <p>Berry Donut Chocolate adalah inovasi dessert yang dipadukan dengan cokelat dan buah-buahan berbentuk donat. Dessert ini terbuat dari susunan buah segar yang dibentuk melingkar menyerupai donat, lalu disiram dengan lelehan cokelat premium, dan didinginkan di kulkas hingga mengeras.</p>
+            </section>
+
+            <!-- Seksi Produk Utama -->
+            <section id="produk">
+                <div class="product-card">
+                    <img src="image_0.png" alt="Berry Donut Chocolate" class="product-image-large">
+                </div>
+                
+                <div class="product-card product-details-card">
+                    <div class="product-details">
+                        <h4>Berry Donut Chocolate</h4>
+                        <p class="product-price">Rp 20.000 / Isi 2 Buah</p>
+                        <p class="product-desc">Perpaduan kelezatan buah segar yang dibalut cokelat beku berbentuk donat bundar.</p>
+                    </div>
+
+                    <div class="order-actions">
+                        <div class="order-form">
+                            <label for="jumlah">Jumlah:</label>
+                            <input type="number" id="jumlah" name="jumlah" value="1" min="1">
+                        </div>
+                        
+                        <button class="btn btn-cart">
+                            <i class="fas fa-shopping-cart"></i> Tambahkan ke Keranjang
+                        </button>
+                        
+                        <a href="https://wa.me/6282337775870?text=Halo%20Admin%20Berry%20Donut%20Chocolate,%20saya%20tertarik%20untuk%20memesan%20(Isi%20Jumlah%20Disini)..." target="_blank" class="btn btn-wa">
+                            <i class="fab fa-whatsapp"></i> Pesan via Admin 1 (082337775870)
+                        </a>
+                        
+                        <a href="https://wa.me/6283195167377?text=Halo%20Admin%20Berry%20Donut%20Chocolate,%20saya%20tertarik%20untuk%20memesan%20(Isi%20Jumlah%20Disini)..." target="_blank" class="btn btn-wa">
+                            <i class="fab fa-whatsapp"></i> Pesan via Admin 2 (083195167377)
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seksi Keunggulan -->
+            <section>
+                <h3 class="section-title">Mengapa Memilih Kami?</h3>
+                <div id="keunggulan">
+                    <div class="feature-card">
+                        <i class="fas fa-shapes feature-icon"></i>
+                        <h5>Produk Unik</h5>
+                        <p>Menggabungkan donat, cokelat, dan buah dalam satu produk yang menarik.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-tint feature-icon"></i>
+                        <h5>Variasi Rasa</h5>
+                        <p>Perpaduan cokelat dan buah memberikan sensasi rasa yang berbeda dan mengurangi rasa bosan.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-chart-line feature-icon"></i>
+                        <h5>Dukung Ekonomi Lokal</h5>
+                        <p>Bahan baku dibeli dari pedagang sekitar untuk membantu perputaran ekonomi masyarakat.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seksi Cara Pesan -->
+            <section id="cara-pesan">
+                <h3 class="section-title">CARA PESAN</h3>
+                <ol>
+                    <li>Tentukan jumlah pesanan</li>
+                    <li>Hubungi kontak WhatsApp kami</li>
+                    <li>Bisa memilih pembayaran cash/tf</li>
+                    <li>Pesanan siap diambil/diantar</li>
+                </ol>
+                <div class="payment-info">
+                    <i class="fas fa-wallet"></i> Dana/Shopeepay : 083197685802
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Bagian Footer -->
+    <footer>
+        <h4>BERRY DONUT CHOCOLATE</h4>
+        <p>“Satu Gigitan, Bikin Mood Meningkat!”</p>
+    </footer>
+
+</body>
+</html>
